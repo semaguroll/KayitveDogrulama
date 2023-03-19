@@ -21,9 +21,7 @@
 
                                         <div class="form_input">
                                             <asp:TextBox type="number"  TextMode="Number"  min="0" placeholder="TC Kimlik No" TabIndex="1" ID="txtTCNo" runat="server"></asp:TextBox>                                                
-                                            <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "txtTCNo" ForeColor="#ff9900" ID="RegularExpressionValidator1" ValidationExpression = ".{11}." runat="server" ErrorMessage="TC Kimlik No 11 arakter olmalıdır."></asp:RegularExpressionValidator>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Boş geçilemez." ControlToValidate="txtTCNo" ForeColor="#ff9900"></asp:RequiredFieldValidator>                                            
-                                        </div>
+                                           </div>
                                     </div>
                                 </li>
                                 <li>
@@ -50,17 +48,14 @@
 
                                         <div class="form_input">
                                             <asp:TextBox type="number" TextMode="Number" min="0" placeholder="Telefon Numarası" TabIndex="1" ID="txtPhoneNumber" runat="server"></asp:TextBox>
-                                            <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "txtPhoneNumber" ForeColor="#ff9900" ID="RegularExpressionValidator2" ValidationExpression = ".{11}." runat="server" ErrorMessage="Telefon numarası 11 arakter olmalıdır."></asp:RegularExpressionValidator>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Boş geçilemez." ControlToValidate="txtPhoneNumber" ForeColor="#ff9900"></asp:RequiredFieldValidator>                                            
-                                        </div>
+                                            </div>
                                     </div>
                                 </li>                                
                                 <li>
                                     <div class="form_grid_12">
                                         <label class="field_title">Doğum Tarihi</label>
                                         <div class="form_input">
-                                            <asp:TextBox TextMode="Date" TabIndex="1" ID="txtBirthDate" runat="server"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Boş geçilemez." ControlToValidate="txtBirthDate" ForeColor="#ff9900"></asp:RequiredFieldValidator>
+                                            <asp:TextBox TextMode="Date" TabIndex="1" ID="txtBirthDate" runat="server"></asp:TextBox>                                           
                                         </div>
                                     </div>
                                 </li>                               

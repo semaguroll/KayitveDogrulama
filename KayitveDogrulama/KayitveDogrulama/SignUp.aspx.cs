@@ -17,7 +17,12 @@ namespace KayitveDogrulama
         }
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            try
+            var bd = txtBirthDate.Text;
+            if (bd == "")
+            {
+                MessageBox.Show("Bilgilerinizin eksik olup olmadığını kontrol edip tekrar deneyiniz.");               
+            }
+            else
             {
                 DateTime birthdate = Convert.ToDateTime(txtBirthDate.Text);
                 bool realUser = data.TCNoControl(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
@@ -29,12 +34,6 @@ namespace KayitveDogrulama
                 }
                 else
                     MessageBox.Show("Bilgilerinizi kontrol edip tekrar deneyiniz.");
-
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Bilgilerinizin eksik olup olmadığını kontrol edip tekrar deneyiniz.");
             }
 
         }
