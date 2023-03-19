@@ -36,7 +36,7 @@ namespace KayitveDogrulama.DBData
         {
             if (true)
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Kullanici (TCKimlikNo,Ad,Soyad,TelefonNumarasi,DogumTarihi,KayitTarihi) VALUES (@tc,@ad,@soyad,@dogumtrh,@kayittrh)", conn.Connection());
+                SqlCommand cmd = new SqlCommand("INSERT INTO Kullanici (TCKimlikNo,Ad,Soyad,DogumTarihi,KayitTarihi) VALUES (@tc,@ad,@soyad,@dogumtrh,@kayittrh)", conn.Connection());
                 cmd.Parameters.AddWithValue("@tc", TCNo);
                 cmd.Parameters.AddWithValue("@ad", Name);
                 cmd.Parameters.AddWithValue("@soyad", Surname);

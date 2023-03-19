@@ -5,12 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace KayitveDogrulama
 {
 	public partial class SignUp : System.Web.UI.Page
 	{
 		UserData data = new UserData();
+		public enum MessageType { Success, Error, Info, Warning };
 		protected void Page_Load(object sender, EventArgs e)
 		{
 
@@ -19,13 +21,14 @@ namespace KayitveDogrulama
 		{
 			DateTime birthdate = Convert.ToDateTime(txtBirthDate.Text);
 			bool realUser = data.TCNoControl(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
-			if (realUser)
-				data.SqlAdd(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
-            else
+			if (realUser== true)
             {
-				//
-            }
-			Response.Redirect("Result.aspx");
+				data.SqlAdd(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
+				Response.Redirect("Result.aspx");
+			}
+            else
+				MessageBox.Show("Bilgilerinizi kontrol edip tekrar deneyiniz.");
 		}
+
 	}
 }
