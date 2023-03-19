@@ -108,8 +108,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="#">Anasayfa <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="#">Kayıt</a>
+                        <a class="nav-item nav-link active" href="Home.aspx">Anasayfa <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="SignUp.aspx">Kayıt</a>
                     </div>
                 </div>
             </nav>

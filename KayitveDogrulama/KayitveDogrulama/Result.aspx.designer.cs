@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KayitveDogrulama
+namespace KayitveDogrulama.Scripts
 {
 
 
-    public partial class Home
+    public partial class Result
     {
     }
 }
