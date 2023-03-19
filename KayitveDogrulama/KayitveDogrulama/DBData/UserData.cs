@@ -4,12 +4,35 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Windows.Forms;
 
 namespace KayitveDogrulama.DBData
 {
     public class UserData
     {
         SqlConnect conn = new SqlConnect();
+
+       
+
+        public void SqlAdd(long TCNo, string Name ,string Surname,DateTime BirthDate)
+        {
+            var data = GetDataByTCNo(TCNo);
+            if (!data.HasRows)
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO Kullanici (TCKimlikNo,Ad,Soyad,DogumTarihi,KayitTarihi) VALUES (@tc,@ad,@soyad,@dogumtrh,@kayittrh)", conn.Connection());
+                cmd.Parameters.AddWithValue("@tc", TCNo);
+                cmd.Parameters.AddWithValue("@ad", Name);
+                cmd.Parameters.AddWithValue("@soyad", Surname);
+                cmd.Parameters.AddWithValue("@dogumtrh", BirthDate);
+                cmd.Parameters.AddWithValue("@kayittrh", DateTime.Now ) ;
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                MessageBox.Show("Sisteme kayıtlı kullanıcı bilgisi girdiniz.");
+            }
+
+        }
 
         public bool TCNoControl(long TCNo, string Name, string Surname, DateTime BirthDate)
         {
@@ -18,7 +41,7 @@ namespace KayitveDogrulama.DBData
             {
                 //Doğum yılı kullanılacak
                 //İsim ve Soyisim büyük harflerle girilecek
-                using(KimlikDogrulamaServisi.KPSPublicSoapClient service = new KimlikDogrulamaServisi.KPSPublicSoapClient())
+                using (KimlikDogrulamaServisi.KPSPublicSoapClient service = new KimlikDogrulamaServisi.KPSPublicSoapClient())
                 {
                     durum = service.TCKimlikNoDogrula(TCNo, Name, Surname, BirthDate.Year);
                 }
@@ -31,24 +54,12 @@ namespace KayitveDogrulama.DBData
             return durum;
         }
 
-
-        public void SqlAdd(long TCNo, string Name ,string Surname,DateTime BirthDate)
+        public SqlDataReader GetDataByTCNo(long tcno)
         {
-            if (true)
-            {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Kullanici (TCKimlikNo,Ad,Soyad,DogumTarihi,KayitTarihi) VALUES (@tc,@ad,@soyad,@dogumtrh,@kayittrh)", conn.Connection());
-                cmd.Parameters.AddWithValue("@tc", TCNo);
-                cmd.Parameters.AddWithValue("@ad", Name);
-                cmd.Parameters.AddWithValue("@soyad", Surname);
-                cmd.Parameters.AddWithValue("@dogumtrh", BirthDate);
-                cmd.Parameters.AddWithValue("@kayittrh", DateTime.Now ) ;
-                cmd.ExecuteNonQuery();
-            }
-            else
-            {
-                //
-            }
-
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Kullanici WHERE TCKimlikNo= @tcno", conn.Connection());
+            cmd.Parameters.AddWithValue("@tcno", tcno);
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
         }
 
         //public int ConvertDatetoInt(DateTime BirthDate)

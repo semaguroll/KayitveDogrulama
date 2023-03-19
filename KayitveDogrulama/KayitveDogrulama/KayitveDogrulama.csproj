@@ -594,7 +594,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connection\SqlConnect.cs" />
-    <Compile Include="DBData\ResultData.cs" />
     <Compile Include="DBData\UserData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

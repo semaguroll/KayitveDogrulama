@@ -3,23 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .rightbutton {
-            width: 200px;
-            float: right;
-            margin-right: 100px;
-            margin-top: 20px;
-            padding: 7px;
-            border: outset;
-            text-align: center;
-            border-color: cornflowerblue;
-            color: cornflowerblue;
-        }
-    </style>
+    
     <div id="content">
         <div class="grid_container">
-            <div class="grid_12 full_block text-center" style="margin-top:50px;">,
+            <div class="grid_12 full_block text-center" style="margin-top:200px;">
                         <h1>Hoşgeldiniz </h1>
+                <br />
+                <h4> <a href="SignUp.aspx" style="color:coral">Kayıt Oluştur</a> </h4>
             </div>
         </div>
     </div>

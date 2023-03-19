@@ -10,7 +10,6 @@ namespace KayitveDogrulama.Models
         public long TCNo { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime RegisterDate { get; set; }
     }
