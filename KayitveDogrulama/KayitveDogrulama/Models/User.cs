@@ -7,7 +7,7 @@ namespace KayitveDogrulama.Models
 {
     public class User
     {
-        public int TCNo { get; set; }
+        public long TCNo { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int PhoneNumber { get; set; }
