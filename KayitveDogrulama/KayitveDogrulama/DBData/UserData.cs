@@ -14,7 +14,7 @@ namespace KayitveDogrulama.DBData
 
        
 
-        public void SqlAdd(long TCNo, string Name ,string Surname,DateTime BirthDate)
+        public bool SqlAdd(long TCNo, string Name ,string Surname,DateTime BirthDate)
         {
             var data = GetDataByTCNo(TCNo);
             if (!data.HasRows)
@@ -26,10 +26,12 @@ namespace KayitveDogrulama.DBData
                 cmd.Parameters.AddWithValue("@dogumtrh", BirthDate);
                 cmd.Parameters.AddWithValue("@kayittrh", DateTime.Now ) ;
                 cmd.ExecuteNonQuery();
+                return true;
             }
             else
             {
                 MessageBox.Show("Sisteme kayıtlı kullanıcı bilgisi girdiniz.");
+                return false;
             }
 
         }

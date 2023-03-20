@@ -17,24 +17,20 @@ namespace KayitveDogrulama
         }
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            var bd = txtBirthDate.Text;
-            if (bd == "")
+
+            DateTime birthdate = Convert.ToDateTime(txtBirthDate.Text);
+            bool realUser = data.TCNoControl(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
+            if (realUser == true)
             {
-                MessageBox.Show("Bilgilerinizin eksik olup olmadığını kontrol edip tekrar deneyiniz.");               
+                var isAdded = data.SqlAdd(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
+                if (isAdded == true)
+                {
+                    Response.Redirect("Result");
+                }
             }
             else
-            {
-                DateTime birthdate = Convert.ToDateTime(txtBirthDate.Text);
-                bool realUser = data.TCNoControl(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
-                if (realUser == true)
-                {
-                    data.SqlAdd(Convert.ToInt64(txtTCNo.Text), txtName.Text, txtSurname.Text, birthdate);
-                    Response.Redirect("Result.aspx");
+                MessageBox.Show("Bilgilerinizi kontrol edip tekrar deneyiniz.");
 
-                }
-                else
-                    MessageBox.Show("Bilgilerinizi kontrol edip tekrar deneyiniz.");
-            }
 
         }
 
